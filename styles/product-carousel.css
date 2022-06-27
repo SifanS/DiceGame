@@ -1,0 +1,65 @@
+
+#container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    background-color: white;
+    border:solid 2px var(--main-color);
+    padding:10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px 2px var(--dark-color);
+    max-width:500px;
+}
+#container figure{
+    flex:0 0 100%;
+    text-align:center;
+}
+#container button{
+    flex:0 0 auto;
+}
+#pop-up{
+    width:300px;
+    padding:10px;
+    background-color: var(--main-color);
+    color:white;
+    border:solid 1px black;
+    box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    /*
+    animate this opacity property
+    from 0 to 1    
+    */
+    opacity:0;
+    /* 
+    ensure pointer events will go 'through' this section tag 
+    since it might  otherwise overlap the buttons and make them unclickable
+    */
+    pointer-events: none;
+
+    z-index:1000;
+}
+#btn-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-weight: bold;
+    background-color: var(--second-color);
+    color:inherit;
+    border:solid 2px var(--light-color);
+    cursor:pointer;
+    /* ensure pointer events will apply to the button */
+    pointer-events: all;
+}
+#btn-close:hover{
+    background-color: var(--main-color);
+    border-color:var(--second-color);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

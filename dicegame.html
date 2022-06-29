@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment08 Sample - COMP2132</title>
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/popup.css">
+
+    <script src="scripts/jquery-3.4.1.min.js" defer></script>
+    <script src="scripts/dicegame.js" defer></script>
+    <script src="scripts/accordian.js" defer></script>
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Dice Game A01034484</h1>
+        </header>
+        <main>
+            <section id="pop-up">
+                <h2>Game Over</h2>
+                <button id="btn-close">&#10005;</button>
+                <p></p>
+                <button id="btn-ok">OK</button>
+            </section>
+            <div class="container row">
+                <div class="Player column">
+                    <p>You</p>
+                    <p  class="row-title">Your Dice</p>
+                    <div class="row">
+                        <div class="column" id="player-dice-1">Dice #1<img src="" id="player-dice-1-image"
+                                alt="player-dice-1-image" style="display: none;"></div>
+                        <div class="column" id="player-dice-2">Dice #2<img src="" id="player-dice-2-image"
+                                alt="player-dice-2-image" style="display: none;"></div>
+                    </div>
+                    <p  class="row-title">Your Score</p>
+                    <div class="row">
+                        <div class="column" id="player-current-score">Score this round</div>
+                        <div class="column" id="player-total-score">total Score</div>
+                    </div>
+                </div>
+
+                <div class="Computer column">
+                    <p>Computer</p>
+                    <p class="row-title">Computer's Dice</p>
+                    <div class="row">
+                        <div class="column" id="computer-dice-1">Dice #1<img src="" id="computer-dice-1-image"
+                                alt="computer-dice-1-image" style="display: none;"></div>
+                        <div class="column" id="computer-dice-2">Dice #2<img src="" id="computer-dice-2-image"
+                                alt="computer-dice-2-image" style="display: none;"></div>
+                    </div>
+                    <p class="row-title">Computer's Score</p>
+
+                    <div class="row">
+                        <div class="column" id="computer-current-score">Score this round</div>
+                        <div class="column" id="computer-total-score">total Score</div>
+                    </div>
+            </div>
+
+            <div class="bottom">
+                <button type="button" class="butn" id="roll-dice">
+                    Roll Dice
+                </button>
+                <button type="button" class="butn" id="new-game">
+                    New Game
+                </button>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-container accordion-container-01">
+                    <h2 class="tab tab-01">How to play:</h2>
+                    <div class="content content-01">
+                        <ul>To start, click the "Roll Dice" button</ul>
+                        <ul>To advance to next round, click the "Roll Dice" button again</ul>
+                        <ul>After 3 round, the game is over and the final scores are calculated</ul>
+                        <ul>If you want to play again, click "New Game" button</ul>
+                    </div><!-- end content -->
+                </div><!-- end accoridion-container -->
+                <div class="accordion-container accordion-container-01">
+                    <h2 class="tab tab-02">Rules</h2>
+                    <div class="content content-02">
+                        <ul>If any of the players two dice comes up as a 1 then the score for that round for the player
+                            is 0. eg: if the player rolls a 6 and 1, they get a score of 0</ul>
+                        <ul>If the player rolls a pair of the same numbers then the players score is the total of the
+                            two dice times 2. eg: if he player rolls 5 and 5, they get a score of (5+5)*2=20</ul>
+                        <ul>If the player rolls any other combination of dice other than the ones mentioned above
+                            then the players score is the total value of the two dice, eg: player rolls a 3 and 2, player
+                            gets a score of 3+2=5
+                            </ul>
+
+                    </div><!-- end content -->
+                </div><!-- end accoridion-container -->
+            </div>
+        </main>
+        <footer>
+            <p>Copyleft 20** <span>&copy;</span> - COMP2132</p>
+        </footer>
+    </div>
+</body>
+
+</html>

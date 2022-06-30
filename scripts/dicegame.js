@@ -34,9 +34,11 @@ const $popUp = $("#pop-up");
 const closePopup = document.getElementById("btn-close");
 const okPopup = document.getElementById("btn-ok");
 
+//roll dice pop-up
+const $popUpRolling = $("#pop-up-roll-dice");
+
 let popupAnimationHandler;
 let opacityValue = 0;
-
 
 //roll dice function
 $btnRollDice.click(function () {
@@ -70,8 +72,8 @@ $btnRollDice.click(function () {
     }
     playerTotalScore_value += playerCurrentScore_value;
 
-    $playerCurrentScore.html("Score this round: " + playerCurrentScore_value);
-    $playerTotalScore.html("Total score: " + playerTotalScore_value);
+    $playerCurrentScore.html("Score this round: \n" + playerCurrentScore_value);
+    $playerTotalScore.html("Total score: \n" + playerTotalScore_value);
 
     //update scores for computer
     if (computerDice1_value === 1 || computerDice2_value === 1) {
@@ -83,16 +85,17 @@ $btnRollDice.click(function () {
     }
     computerTotalScore_value += computerCurrentScore_value;
 
-    $computerCurrentScore.html("Score this round: " + computerCurrentScore_value);
-    $computerTotalScore.html("Total score: " + computerTotalScore_value);
+    $computerCurrentScore.html("Score this round: \n" + computerCurrentScore_value);
+    $computerTotalScore.html("Total score: \n" + computerTotalScore_value);
     round += 1;
     console.log(round);
 
 
     //finish game after 3rd round
     if (round == 3) {
+        $btnRollDice.prop('disabled', true);
         $(document).ready(function () {
-            if (computerTotalScore_value > playerTotalScore_value) {
+            if (computerTotalScore_value < playerTotalScore_value) {
                 $popUp.children("p").text("Congratulations! You Won!");
                 popupAnimationHandler = requestAnimationFrame(fadeIn);
             } else if (computerTotalScore_value == playerTotalScore_value) {
@@ -109,6 +112,13 @@ $btnRollDice.click(function () {
 
 //start new game and reset value
 $btnNewGame.click(function () {
+    $btnRollDice.prop('disabled', false);
+    //dice-roll-animation
+    $popUpRolling.css("opacity", 1);
+    $popUpRolling.html('<img src="images/dice-roll.gif" alt="Roll Dice">');
+    setTimeout(function () {
+        $popUpRolling.css("opacity", 0);
+    }, 3000);
     playerTotalScore_value = 0;
     computerTotalScore_value = 0;
     round = 0;
@@ -129,10 +139,10 @@ an animation for fading in the opacity
 function fadeIn() {
     opacityValue = opacityValue + .05;
     if (opacityValue <= 1) {
-        $popUp.css("opacity",opacityValue)
+        $popUp.css("opacity", opacityValue);
         requestAnimationFrame(fadeIn);
     } else {
-        $popUp.css("opacity",1)
+        $popUp.css("opacity", 1);
     }
 }
 
@@ -140,7 +150,7 @@ function fadeIn() {
 allow user to close and hide the popup after they have seen it
 */
 closePopup.addEventListener("click", function () {
-    $popUp.css("opacity",0)
+    $popUp.css("opacity", 0);
 });
 
 
@@ -148,7 +158,7 @@ closePopup.addEventListener("click", function () {
 allow user to close and hide the popup after they have seen it
 */
 okPopup.addEventListener("click", function () {
-    $popUp.css("opacity",0)
+    $popUp.css("opacity", 0);
 });
 
 

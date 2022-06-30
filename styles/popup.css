@@ -1,6 +1,7 @@
 
 #pop-up{
     width:300px;
+    height: 150px;
     padding:10px;
     background-color: var(--main-color);
     color:white;
@@ -23,7 +24,30 @@
 
     z-index:1000;
 }
-#btn-close{
+
+#pop-up-roll-dice{
+    width:300px;
+    height: 150px;
+    padding:10px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    /*
+    animate this opacity property
+    from 0 to 1    
+    */
+    opacity:0;
+    /* 
+    ensure pointer events will go 'through' this section tag 
+    since it might  otherwise overlap the buttons and make them unclickable
+    */
+    pointer-events: none;
+
+    z-index:1000;
+}
+
+#btn-close {
     position:absolute;
     top:10px;
     right:10px;
@@ -35,8 +59,26 @@
     /* ensure pointer events will apply to the button */
     pointer-events: all;
 }
+
 #btn-close:hover{
     background-color: var(--main-color);
     border-color:var(--second-color);
 }
 
+#btn-ok {
+    position:absolute;
+    bottom:10px;
+    left:125px;
+    font-weight: bold;
+    background-color: var(--second-color);
+    color:inherit;
+    border:solid 2px var(--light-color);
+    cursor:pointer;
+    /* ensure pointer events will apply to the button */
+    pointer-events: all;
+}
+
+#btn-ok:hover{
+    background-color: var(--main-color);
+    border-color:var(--second-color);
+}
